@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Mật khẩu nhập lại không khớp.";
     }
 
-    if (empty($errors)) {
-   
+    if (empty($errors)) {  
         $stmt = $pdo->prepare("SELECT id FROM users WHERE username = :u OR email = :e");
         $stmt->execute([':u' => $username, ':e' => $email]);
         if ($stmt->fetch()) {

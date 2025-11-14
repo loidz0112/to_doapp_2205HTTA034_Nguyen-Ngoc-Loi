@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        // check trùng username / email
+   
         $stmt = $pdo->prepare("SELECT id FROM users WHERE username = :u OR email = :e");
         $stmt->execute([':u' => $username, ':e' => $email]);
         if ($stmt->fetch()) {

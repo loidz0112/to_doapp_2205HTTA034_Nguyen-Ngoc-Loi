@@ -9,7 +9,7 @@ if (!$id) {
     exit;
 }
 
-// Lấy task của đúng user
+
 $stmt = $pdo->prepare("SELECT * FROM tasks WHERE id = :id AND user_id = :uid");
 $stmt->execute([':id' => $id, ':uid' => $userId]);
 $task = $stmt->fetch(PDO::FETCH_ASSOC);

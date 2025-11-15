@@ -24,24 +24,33 @@ $pageTitle = "Danh sách công việc";
 require 'partials/header.php';
 ?>
 
-<div class="row">
+<div class="row g-4">
   <div class="col-md-4">
-    <h4>Thêm công việc mới</h4>
-    <form method="post" action="add_task.php">
-      <div class="mb-3">
-        <label class="form-label">Tiêu đề</label>
-        <input name="title" class="form-control" required>
+    <div class="card bg-dark text-light">
+      <div class="card-body">
+        <h4 class="mb-3">➕ Thêm công việc</h4>
+
+        <form method="post" action="add_task.php">
+          <div class="mb-3">
+            <label class="form-label">Tiêu đề</label>
+            <input name="title" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mô tả</label>
+            <textarea name="description" class="form-control" rows="3"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Ngày hết hạn</label>
+            <input type="datetime-local" name="due_date" class="form-control">
+          </div>
+
+          <button class="btn btn-success w-100">Thêm công việc</button>
+        </form>
+
       </div>
-      <div class="mb-3">
-        <label class="form-label">Mô tả</label>
-        <textarea name="description" class="form-control" rows="3"></textarea>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Ngày hết hạn</label>
-        <input type="datetime-local" name="due_date" class="form-control" required>
-      </div>
-      <button class="btn btn-success">Thêm</button>
-    </form>
+    </div>
   </div>
 
   <div class="col-md-8">

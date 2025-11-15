@@ -9,11 +9,38 @@ if (!isset($pageTitle)) {
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+ 
+ <style>
+    body {
+      background: #1b1f22;
+      color: #e4e4e4;
+    }
+    .navbar {
+      background: #111418 !important;
+      border-bottom: 1px solid #333;
+    }
+    .table thead {
+      background: #22272a;
+      color: #fff;
+    }
+    .table tbody tr {
+      background: #1f2427;
+      border-color: #2c2f33;
+    }
+    .table tbody tr:hover {
+      background: #262b2f;
+    }
+    .btn-custom {
+      border-radius: 6px;
+      padding: 4px 12px;
+    }
+  </style>
+ 
+  </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand" href="index.php">To-Do</a>
+    <a class="navbar-brand" href="index.php">ToDoSchedule</a>
     <div class="d-flex">
       <?php if (!empty($_SESSION['user_id'])): ?>
         <span class="navbar-text text-white me-3">
@@ -27,4 +54,4 @@ if (!isset($pageTitle)) {
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container py-4">

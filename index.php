@@ -51,9 +51,9 @@ require 'partials/header.php';
       <div class="col-auto">
         <select name="status" class="form-select">
           <option value="">Tất cả trạng thái</option>
-          <option value="pending"      <?= $statusFilter==='pending'?'selected':'' ?>>Pending</option>
-          <option value="in_progress"  <?= $statusFilter==='in_progress'?'selected':'' ?>>In progress</option>
-          <option value="completed"    <?= $statusFilter==='completed'?'selected':'' ?>>Completed</option>
+          <option value="pending"      <?= $statusFilter==='pending'?'selected':'' ?>>Đang chờ</option>
+          <option value="in_progress"  <?= $statusFilter==='in_progress'?'selected':'' ?>>Đang hoàn thành</option>
+          <option value="completed"    <?= $statusFilter==='completed'?'selected':'' ?>>Hoàn Thành</option>
         </select>
       </div>
       <div class="col-auto">
@@ -77,11 +77,26 @@ require 'partials/header.php';
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($tasks as $task): ?>
+          
+        <?php $statusVN = [
+    'pending'     => 'Đang chờ',
+    'in_progress' => 'Đang làm',
+    'completed'   => 'Hoàn thành'
+];
+ foreach  ($tasks as $task): ?>
           <tr>
+            
             <td><?= htmlspecialchars($task['title']) ?></td>
-            <td><?= htmlspecialchars($task['due_date'] ?? '-') ?></td>
-            <td><?= htmlspecialchars($task['STATUS']) ?></td>
+            <td>
+    <?php
+        if ($task['due_date']) {
+            echo date('d/m/Y', strtotime($task['due_date']));
+        } else {
+            echo "-";
+        }
+    ?>
+</td>
+            <td><?= $statusVN[$task['STATUS']] ?? $task['STATUS'] ?></td>
             <td>
   <a class="btn btn-sm btn-outline-primary" href="edit_task.php?id=<?= $task['id'] ?>">Sửa</a>
 

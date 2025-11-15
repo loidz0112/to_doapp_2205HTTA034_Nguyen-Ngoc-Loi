@@ -4,7 +4,7 @@ require 'auth_check.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = trim($_POST['title'] ?? '');
     $description = trim($_POST['description'] ?? '');
-    $due_date    = $_POST['datetime-local'] ?? null;
+    $due_date    = $_POST['due_date'] ?? null;
 
     if ($title !== '') {
         $stmt = $pdo->prepare(

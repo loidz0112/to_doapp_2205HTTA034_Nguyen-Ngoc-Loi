@@ -66,9 +66,9 @@ require 'partials/header.php';
   <div class="mb-3">
     <label class="form-label">Trạng thái</label>
     <select name="status" class="form-select">
-      <option value="pending"     <?= $task['status']==='pending'?'selected':'' ?>>Pending</option>
-      <option value="in_progress" <?= $task['status']==='in_progress'?'selected':'' ?>>In progress</option>
-      <option value="completed"   <?= $task['status']==='completed'?'selected':'' ?>>Completed</option>
+      <option value="pending"     <?= $task['STATUS']==='pending'?'selected':'' ?>>Đang chờ</option>
+      <option value="in_progress" <?= $task['STATUS']==='in_progress'?'selected':'' ?>>Đang hoàn thành</option>
+      <option value="completed"   <?= $task['STATUS']==='completed'?'selected':'' ?>>Hoàn thành</option>
     </select>
   </div>
   <button class="btn btn-primary">Lưu</button>

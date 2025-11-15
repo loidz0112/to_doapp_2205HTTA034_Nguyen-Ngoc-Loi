@@ -38,7 +38,7 @@ require 'partials/header.php';
       </div>
       <div class="mb-3">
         <label class="form-label">Ngày hết hạn</label>
-        <input type="date" name="due_date" class="form-control">
+        <input type="datetime-local" name="due_date" class="form-control" required>
       </div>
       <button class="btn btn-success">Thêm</button>
     </form>
@@ -87,15 +87,7 @@ require 'partials/header.php';
           <tr>
             
             <td><?= htmlspecialchars($task['title']) ?></td>
-            <td>
-    <?php
-        if ($task['due_date']) {
-            echo date('d/m/Y', strtotime($task['due_date']));
-        } else {
-            echo "-";
-        }
-    ?>
-</td>
+            <td><?= date("d/m/Y H:i", strtotime($task['due_date'])) ?></td>
             <td><?= $statusVN[$task['STATUS']] ?? $task['STATUS'] ?></td>
             <td>
   <a class="btn btn-sm btn-outline-primary" href="edit_task.php?id=<?= $task['id'] ?>">Sửa</a>
